@@ -72,7 +72,7 @@ generics:
         default_value: false
     relationships:
       - name: location
-        peer: LocationMetro
+        peer: LocationGeneric
         optional: true
         cardinality: one
         kind: Attribute
