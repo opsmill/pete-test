@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://schema.infrahub.app/infrahub/schema/latest.json
+---
+version: "1.0"
+extensions:
+  nodes:
+    - kind: DcimDeviceType
+      relationships:
+        - name: design_components
+          peer: DesignElement
+          optional: true
+          cardinality: many
+          kind: Component
+    - kind: DcimGenericDevice
+      relationships:
+        - name: topology
+          peer: TopologyDeployment
+          cardinality: one
+          kind: Attribute
+          optional: true
+    - kind: TopologyColocationCenter
+      attributes:
+        - name: is_virtual
+          kind: Boolean
+          optional: false
+          default_value: false
+          order_weight: 1600

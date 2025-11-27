@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://schema.infrahub.app/infrahub/schema/latest.json
+---
+version: "1.0"
+
+nodes:
+  - name: Docs
+    namespace: Docs
+    description: "Documentation"
+    human_friendly_id:
+      - name__value
+    include_in_menu: false
+    label: Documentation
+    display_label: "{{ name__value }}"
+    attributes:
+      - name: name
+        kind: Text
+        optional: false
+        default_value: "Links"
+      - name: link
+        label: Link
+        kind: URL
+        optional: true
