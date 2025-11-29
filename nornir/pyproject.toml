@@ -6,4 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "nornir-infrahub>=1.1.2",
+    "nornir-netmiko>=1.0.1",
+    "pydocstyle>=6.3.0",
 ]
