@@ -1,0 +1,30 @@
+---
+inventory:
+  plugin: InfrahubInventory
+  options:
+    address: "https://sandbox.infrahub.app"   # Infrahub instance URL
+    token: "1808d43b-c370-48e8-d0ef-c51781c02ddf"           # Replace with your actual token
+    branch: "main"                         # Infrahub branch to use
+
+    # Define which Infrahub node type represents network devices
+    # Using the schema example above
+    host_node:
+      kind: "InfraDevice"                  # Matches the Device node with Infra namespace
+
+    # Map Infrahub attributes to Nornir host properties
+    schema_mappings:
+      - name: "hostname"
+        mapping: "name"                    # Use device name as hostname
+      - name: "platform"
+        mapping: "platform.nornir_platform" # Platform attribute for Nornir compatibility
+
+    # Create Nornir groups based on Infrahub attributes
+    # Note: Disabled due to some devices missing site/role in sandbox
+    # group_mappings:
+    #   - "site.name"
+    #   - "role.name"
+
+runner:
+  plugin: threaded
+  options:
+    num_workers: 20
